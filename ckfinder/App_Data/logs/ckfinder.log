@@ -1,0 +1,13 @@
+Error | CKSource.CKFinder.Connector.Core.CommandHandler | 2017-02-16 16:36:07.2205 | The GetFiles command has failed - ConnectorDisabled (CKFinder is disabled).
+Error | CKSource.CKFinder.Connector.Core.CommandHandler | 2017-02-16 16:36:07.2205 | The GetFolders command has failed - ConnectorDisabled (CKFinder is disabled).
+Error | CKSource.CKFinder.Connector.Core.CommandHandler | 2017-02-16 16:36:08.8704 | The Init command has failed - ConnectorDisabled (CKFinder is disabled).
+Error | CKSource.CKFinder.Connector.Core.CommandHandler | 2017-02-16 16:36:28.3624 | The GetFiles command has failed - ConnectorDisabled (CKFinder is disabled).
+Error | CKSource.CKFinder.Connector.Core.CommandHandler | 2017-02-16 16:36:28.3624 | The GetFolders command has failed - ConnectorDisabled (CKFinder is disabled).
+Error | CKSource.CKFinder.Connector.Core.CommandHandler | 2017-02-16 16:36:54.7743 | The GetFiles command has failed - InvalidRequest (type is missing from query parameters).
+Error | CKSource.CKFinder.Connector.Core.CommandHandler | 2017-02-16 16:36:54.7743 | The GetFolders command has failed - InvalidRequest (type is missing from query parameters).
+Error | CKSource.CKFinder.Connector.Core.CommandHandler | 2017-02-16 16:36:56.5041 | The GetFiles command has failed - InvalidRequest (type is missing from query parameters).
+Error | CKSource.CKFinder.Connector.Core.CommandHandler | 2017-02-16 16:36:56.5041 | The GetFolders command has failed - InvalidRequest (type is missing from query parameters).
+Error | CKSource.CKFinder.Connector.Core.CommandHandler | 2017-02-16 16:36:59.6447 | The GetFolders command has failed - FolderNotFound (Folder "D:\testckeditor\ckfinder\userfiles\files\dog\" was not found).
+Error | CKSource.CKFinder.Connector.Core.CommandHandler | 2017-02-16 16:36:59.6527 | The GetFiles command has failed - FileNotFound (File "D:\testckeditor\ckfinder\userfiles\files\dog\" was not found).
+Error | CKSource.CKFinder.Connector.Core.CommandHandler | 2017-02-16 16:37:01.3343 | The GetFolders command has failed - FolderNotFound (Folder "D:\testckeditor\ckfinder\userfiles\files\dog\" was not found).
+Error | CKSource.CKFinder.Connector.Core.CommandHandler | 2017-02-16 16:37:01.3644 | The GetFiles command has failed - FileNotFound (File "D:\testckeditor\ckfinder\userfiles\files\dog\" was not found).

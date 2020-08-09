@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>寵物廚房</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- ================== 圖示設定 ================== -->
+    <link rel="icon" type="image/png" href="images/icon/icon_images.png" />
+    <!-- ================== CSS 基本樣式 ================== -->
+    <link href="css/basic/fonts.googleapis.css" rel="stylesheet" />
+    <link href="css/basic/jquery-ui.min.css" rel="stylesheet" />
+    <link href="css/basic/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/basic/animate.min.css" rel="stylesheet" />
+    <link href="css/basic/style.min.css" rel="stylesheet" />
+    <link href="css/basic/style-responsive.min.css" rel="stylesheet" />
+    <link href="css/basic/default.css" rel="stylesheet" />
+    <link href="css/basic/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- ================== CSS 功能樣式 ================== -->
+</head>
+<body>
+    <!-- 頁面loader開始 -->
+    <div id="page-loader" class="fade in"><span class="spinner"></span></div>
+    <!-- 頁面loader結束 -->
+    <!-- 整頁內容開始 -->
+    <div id="page-container" class="fade">
+        <!-- begin error -->
+        <div class="error">
+            <div class="error-code m-b-10">404 <i class="fa fa-warning"></i></div>
+            <div class="error-content">
+                <div class="error-message">操作錯誤，請回首頁...</div>
+                <div class="error-desc m-b-20">
+                    非預期錯誤，有任何問題請回報 。 <br />
+                    © 2017 電子商務研發中心   。
+                </div>
+                <div>
+                    <a href="index.html" class="btn btn-success">回首頁</a>
+                </div>
+            </div>
+        </div>
+        <!-- end error -->
+
+        <!-- 置頂按鈕開始 -->
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+        <!-- 置頂按鈕結束 -->
+    </div>
+    <!-- 整頁內容結束 -->
+    <!-- ================== JS 基本控制 ================== -->
+    <script src="javascript/basic/jquery-1.12.4.min.js"></script>
+    <script src="javascript/basic/bootstrap/bootstrap.min.js"></script>
+    <script src="javascript/basic/jquery-migrate-1.1.0.min.js"></script>
+    <script src="javascript/basic/jquery-ui.min.js"></script>
+    <script src="javascript/basic/jquery.slimscroll.min.js"></script>
+    <!-- ================== JS 擴充控制 ================== -->
+    <script src="javascript/page_controll/apps.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            App.init();
+        });
+    </script>
+
+</body>
+</html>

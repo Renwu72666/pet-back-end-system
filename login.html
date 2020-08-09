@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <title>寵物廚房</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- ================== 圖示設定 ================== -->
+    <link rel="icon" type="image/png" href="images/icon/icon_images.png" />
+	
+	<!-- ================== CSS 基本樣式 ================== -->
+    <link href="css/basic/fonts.googleapis.css" rel="stylesheet" />
+    <link href="css/basic/jquery-ui.min.css" rel="stylesheet" />
+    <link href="css/basic/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/basic/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/basic/animate.min.css" rel="stylesheet" />
+    <link href="css/basic/style.min.css" rel="stylesheet" />
+    <link href="css/basic/style-responsive.min.css" rel="stylesheet" />
+    <link href="css/basic/default.css" rel="stylesheet" />
+    <!-- ================== CSS sweetalert2 ================== -->
+    <link href="css/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- 頁面loader開始 -->
+	<div id="page-loader" class="fade in"><span class="spinner"></span></div>
+    <!-- 頁面loader結束 -->
+	<div class="login-cover">
+	    <div class="login-cover-image">
+            <img src="images/background/bg.jpg" data-id="login-cover-image" alt="" /><!--設定背景-->
+        </div>
+        <div class="login-cover-bg"></div>
+	</div>
+    <!-- 整頁內容開始 -->
+	<div id="page-container" class="fade">
+	    <!-- login開始 -->
+        <div class="login login-v2" data-pageload-addclass="animated flipInX">
+            <!-- 系統名稱圖片開始 -->
+            <div class="login-header">
+                <div class="brand">
+                    <img src="images/icon/icon_images.png" alt="" style="width:50px;height:50px;" />寵物廚房
+                    <small>後台管理系統</small>
+                </div>
+                <div class="icon">
+                    <img src="images/icon/icon_images.png"  style="width:70px;height:70px;" />
+                </div>
+            </div>
+            <!-- 系統名稱圖片結束 -->
+            <div class="login-content">
+                <form action="" method="post" class="margin-bottom-0" id="login_form">
+                    <div class="form-group m-b-20">
+                        <input type="text" id="account_name" class="form-control input-lg" placeholder="帳號"  required/>
+                    </div>
+                    <div class="form-group m-b-20">
+                        <input type="password" id="account_password" class="form-control input-lg" placeholder="密碼" required/>
+                    </div>
+                    <div class="login-buttons">
+                        <input type="submit" id="_login" class="btn btn-success btn-block btn-lg"  value="登入" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- login結束 -->
+	</div>
+    <!-- 整頁內容結束 -->
+	<!-- ================== JS 基本樣式 ================== -->
+    <script src="javascript/basic/jquery-1.12.4.min.js"></script>
+    <script src="javascript/basic/bootstrap/bootstrap.min.js"></script>
+    <script src="javascript/basic/jquery-migrate-1.1.0.min.js"></script>
+    <script src="javascript/basic/jquery-ui.min.js"></script>
+    <script src="javascript/basic/jquery.slimscroll.min.js"></script>    	
+	<!-- ================== JS 平面控制 ================== -->
+    <script src="javascript/page_controll/login.min.js"></script>
+    <script src="javascript/page_controll/apps.min.js"></script>
+    <!-- ================== JS sweetalert2 ================== -->
+    <script src="javascript/sweetalert2/sweetalert2.min.js"></script>
+    <!-- ================== JS cookie ================== -->
+    <script src="javascript/cookie/js.cookie-2.1.3.min.js"></script>
+
+	<script>
+        $(document).ready(function() {
+			App.init();
+			LoginJS.init();
+        });
+        $(document).ready(function () {
+            $("#login_form").submit(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'post',
+                    crossOrigin: true,
+                    url: 'http://petapi.uchef.com.tw/api/Admin/Login',
+                    dataType: 'json',
+                    cache: false,
+                    data: {
+                        grant_type: 'password',
+                        username: $("#account_name").val(),
+                        password: $("#account_password").val()
+                    },
+                    success: function (data) {
+                        Cookies.set('access_token', data.access_token, { expires: 1 });//設置cookie一天時間
+                        Cookies.set('username', data.userName, { expires: 1 });//設置cookie一天時間
+                        swal({
+                            type: 'success',
+                            title: '登入成功!',
+                            html: '按下按鈕後跳轉',
+                            allowOutsideClick: false //不可點背景關閉
+                        }).then(function () {
+                            location.href = 'index.html';
+                        })
+                        //token(data.access_token);
+
+                    },
+                    error: function (data, errorThrown, status) {
+                        swal({
+                            type: 'error',
+                            title: '登入失敗!',
+                            html: '帳號密碼錯誤',
+                            allowOutsideClick: false //不可點背景關閉
+                        }).then(function () {
+                            location.reload();
+                        })
+                    }
+                });
+                /*loginsf(function (data) {
+    
+                });*/
+                /*$.ajax({
+                    url: 'http://140.127.22.54/token',
+                    type: 'post',
+                    async: false,
+                    dataType: 'json',
+                    contentType:'application/json',
+                    headers: { 'Authorization': 'Bearer ' + data },
+                    data:
+                        {
+                            grant_type: 'password',
+                            username: 'abc@abc',
+                            password: 'Abc123+'
+                            
+                        },//$("#login_form").serialize(),
+                    success: function (str_json) {
+                        console.log(str_json);
+                        alert("success");
+                    },
+                    error: function (e) {
+                        console.log(e);
+                        //alert("發生錯誤，無法載入" + e);
+                   }
+               });*/
+            });
+        });
+        /*function token(fn) {
+            $.ajax({
+                type: "get",
+                contentType: 'application/json',
+                url: 'http://petapi.uchef.com.tw/api/Admin/UserInfo',
+                cache: false,
+                headers: { 'Authorization': 'bearer ' + fn },
+                dataType: 'json',
+                success: function (data) {
+                    //alert(data)
+                    console.log('success '+ data)
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    //alert(data)
+                    console.log('Error: ' + jqXHR.status);
+                    console.log('textStatus: ' + textStatus)
+                }
+            });
+        }*/
+        /*$("#_login").click(function () {
+                alert($("#login_form").serialize());
+            });*/
+        //data:$('#login_form').serialize()
+	</script>       
+</body>
+</html>
